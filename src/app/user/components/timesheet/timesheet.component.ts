@@ -1,17 +1,19 @@
-import { identifierName } from '@angular/compiler';
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-
-import { TimesheetServiceService } from '../service/timesheet-service.service';
-import { DatePipe } from '@angular/common';
+import { TimesheetServiceService } from 'src/app/service/timesheet-service.service';
+import { Profile } from '../../Models/profile';
+import { UserService } from '../../Services/user.service';
 
 @Component({
-  selector: 'app-timesheetcontent',
-  templateUrl: './timesheetcontent.component.html',
-  styleUrls: ['./timesheetcontent.component.css'],
+  selector: 'app-timesheet',
+  templateUrl: './timesheet.component.html',
+  styleUrls: ['./timesheet.component.css']
 })
-export class TimesheetcontentComponent implements OnInit {
-  taskData: FormGroup;
+export class TimesheetComponent implements OnInit {
+ 
+  userProfile!:Profile;
+  taskData!: FormGroup;
   datePipeString:any;
 
   //get task in database
@@ -26,23 +28,43 @@ export class TimesheetcontentComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public service: TimesheetServiceService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private profile:UserService
   ) {
+    this.profile.getUserProfile().subscribe(res=>{
+      this.userProfile=res;
+      console.log(this.userProfile);
+      this.taskData = this.fb.group({
+        //create a itemrows control in formgroup
+        date: ['00-00-0000'],
+        empId: ['120941'],
+        empName: [this.userProfile?.givenName],
+  
+        itemRows: this.fb.array([this.initItemRow()]),
+      });
+    })
     
-    this.taskData = this.fb.group({
-      //create a itemrows control in formgroup
-      date: ['00-00-0000'],
-      empId: ['120941'],
-      empName: ['Mahesh'],
-
-      itemRows: this.fb.array([this.initItemRow()]),
-    });
-    // this.getTasts();
-    this.getDate();
+    
   }
   //save Project details
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    // this.profile.getUserProfile().subscribe(res=>{
+    //   this.userProfile=res;
+    //   console.log(this.userProfile.displayName);
+    // })
+    // this.taskData = this.fb.group({
+    //   //create a itemrows control in formgroup
+    //   date: ['00-00-0000'],
+    //   empId: ['120941'],
+    //   empName: [this.userProfile?.givenName],
+
+    //   itemRows: this.fb.array([this.initItemRow()]),
+    // });
+    // this.getTasts();
+    this.getDate();
+  }
   get itemRows() {
     return this.taskData.get('itemRows') as FormArray;
   }
@@ -120,7 +142,7 @@ export class TimesheetcontentComponent implements OnInit {
         //create a itemrows control in formgroup
         date: ['00-00-0000'],
         empId: ['120941'],
-        empName: ['Mahesh'],
+        empName: [this.userProfile?.givenName],
   
         itemRows: this.fb.array([this.initItemRow()]),
       });

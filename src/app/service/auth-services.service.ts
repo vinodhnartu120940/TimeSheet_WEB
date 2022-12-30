@@ -8,27 +8,25 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AuthServicesService {
 
-  constructor(private msalService: MsalService,private router:Router) { }
+  constructor(private msalService: MsalService, private router: Router) { }
 
-  isLoggedIn():boolean{
-    return this.msalService.instance.getActiveAccount() !=null
+  isLoggedIn(): boolean {
+    return this.msalService.instance.getActiveAccount() != null
   }
 
 
-  login(){
-    this.msalService.loginPopup().subscribe((response: AuthenticationResult)=>{
+  login() {
+    this.msalService.loginPopup().subscribe((response: AuthenticationResult) => {
       this.msalService.instance.setActiveAccount(response.account);
-      this.router.navigate(["/timesheet"]);
+      this.router.navigate(["user/timesheet"]);
     })
-   
-    
-  }
+}
 
-  logout(){
+  logout() {
     this.msalService.logoutRedirect();
     let msalInstance: PublicClientApplication = this.msalService.instance as PublicClientApplication;
     msalInstance["browserStorage"].clear();
     this.router.navigate(["/"]);
-    
+
   }
 }
