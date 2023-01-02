@@ -52,13 +52,13 @@
                     </div>
 
                 </li>
-                <li class="nav-item" *ngIf="!auth.isLoggedIn()" >
+                <!-- <li class="nav-item" *ngIf="auth.isLoggedIn()" >
                     <div class="d-flex">                       
                         <span class="nav-link login_button" (click)="auth.logout()">Vinodh N</span>
                     </div>
 
-                </li>
-                <li class="nav-item"  >
+                </li> -->
+                <li class="nav-item" *ngIf="auth.isLoggedIn()" >
                     <div class="dropdown">
                      
                         <a  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,10 +68,10 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                           <li><span class="user-email">mahesh smbxl</span></li>
                           <li><hr class="dropdown-divider" /></li>
-                          <li><button class="dropdown-item" href="#"> <i class="fa-regular fa-user"></i>Profile</button></li>
+                          <li><button class="dropdown-item" routerLink="user/profile"> <i class="fa-regular fa-user icon_style"></i>Profile</button></li>
                           
                           <!-- <li><button class="dropdown-item" href="#"> <i class="fa-solid fa-right-from-bracket"></i>Logout</button></li> -->
-                          <li><button class="dropdown-item" href="#"> <i class="fa-solid fa-right-from-bracket"></i>Logout</button></li>
+                          <li><button class="dropdown-item" (click)="auth.logout()" > <i class="fa-solid fa-right-from-bracket icon_style"></i>Logout</button></li>
                         </ul>
                       </div>
                       <!-- <div class="dropdown">

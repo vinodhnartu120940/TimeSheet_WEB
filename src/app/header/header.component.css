@@ -60,6 +60,9 @@ ul li a {
     line-height: 24px;
     text-transform: lowercase;
 }
+.icon_style{
+    padding: 10px;
+}
 /* select{
     width: 203px;
     border: none;
