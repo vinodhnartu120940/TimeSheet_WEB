@@ -28,6 +28,38 @@ ul li a {
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
     color: #106eea;
 }
+.profile_pic{
+    border-radius: 20px;
+}
+.user_name{
+    font-weight: bolder;
+    color: #1B3D6E;
+    padding-right: 9px;
+}
+.dropdown-menu{
+    padding: 12px 0;
+    font-size: 16px;
+    left: auto;
+    margin-left: -70px;
+    right: 0;
+    min-width: 250px;
+    text-align: left;
+    margin-right: 0;
+    top: 50px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    box-shadow: 0 4px 15px #00358440;
+    border-radius: 10px;
+}
+.dropdown-menu li .user-email{
+    display: block;
+    color: #888;
+    font-family: var(--sofiareg);
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: lowercase;
+}
 /* select{
     width: 203px;
     border: none;

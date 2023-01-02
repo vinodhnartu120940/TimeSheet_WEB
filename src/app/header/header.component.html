@@ -52,12 +52,46 @@
                     </div>
 
                 </li>
-                <li class="nav-item" *ngIf="auth.isLoggedIn()" >
+                <li class="nav-item" *ngIf="!auth.isLoggedIn()" >
                     <div class="d-flex">                       
-                        <button class="nav-link login_button" (click)="auth.logout()">Logout</button>
+                        <span class="nav-link login_button" (click)="auth.logout()">Vinodh N</span>
                     </div>
 
                 </li>
+                <li class="nav-item"  >
+                    <div class="dropdown">
+                     
+                        <a  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../assets/images/Person-Icon.jpg"
+                            width="40" height="40" alt="user icon" class="profile_pic">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><span class="user-email">mahesh smbxl</span></li>
+                          <li><hr class="dropdown-divider" /></li>
+                          <li><button class="dropdown-item" href="#"> <i class="fa-regular fa-user"></i>Profile</button></li>
+                          
+                          <!-- <li><button class="dropdown-item" href="#"> <i class="fa-solid fa-right-from-bracket"></i>Logout</button></li> -->
+                          <li><button class="dropdown-item" href="#"> <i class="fa-solid fa-right-from-bracket"></i>Logout</button></li>
+                        </ul>
+                      </div>
+                      <!-- <div class="dropdown">
+                        <a href="#" id="imageDropdown" data-toggle="dropdown">
+                            <img src="../../assets/images/Person-Icon.jpg"
+                            width="40" height="40" alt="user icon" class="profile_pic">
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="imageDropdown">
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 1</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 2</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 3</a></li>
+                          <li role="presentation" class="divider"></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 4</a></li>
+                        </ul>
+                      </div> -->
+
+                </li>
+               
+                
+
             </ul>
             <!-- <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
