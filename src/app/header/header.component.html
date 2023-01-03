@@ -60,13 +60,15 @@
                 </li> -->
                 <li class="nav-item" *ngIf="auth.isLoggedIn()" >
                     <div class="dropdown">
+                        <span class="user_name">{{this.userService.userDetails.givenName}}</span>
                      
                         <a  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            
                             <img src="../../assets/images/Person-Icon.jpg"
                             width="40" height="40" alt="user icon" class="profile_pic">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><span class="user-email">mahesh smbxl</span></li>
+                          <li><span class="user-email">{{this.userService.userDetails.mail}}</span></li>
                           <li><hr class="dropdown-divider" /></li>
                           <li><button class="dropdown-item" routerLink="user/profile"> <i class="fa-regular fa-user icon_style"></i>Profile</button></li>
                           

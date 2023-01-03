@@ -33,6 +33,7 @@ export class TimesheetComponent implements OnInit {
   ) {
     this.profile.getUserProfile().subscribe(res=>{
       this.userProfile=res;
+      this.profile.userDetails=res;
       console.log(this.userProfile);
       this.taskData = this.fb.group({
         //create a itemrows control in formgroup

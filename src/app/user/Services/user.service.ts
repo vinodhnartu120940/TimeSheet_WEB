@@ -9,11 +9,10 @@ const Graph_EndPoint="https://graph.microsoft.com/v1.0/me"
   providedIn: 'root'
 })
 
+
 export class UserService {
-
- 
+  userDetails!:Profile;
   constructor(private httpClient:HttpClient) { }
-
   getUserProfile(){
     return this.httpClient.get<Profile>(Graph_EndPoint);
   }
