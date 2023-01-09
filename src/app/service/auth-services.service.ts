@@ -18,7 +18,7 @@ export class AuthServicesService {
   login() {
     this.msalService.loginPopup().subscribe((response: AuthenticationResult) => {
       this.msalService.instance.setActiveAccount(response.account);
-      this.router.navigate(["user/timesheet"]);
+      this.router.navigate(["user/profile"]);
     })
 }
 

@@ -38,12 +38,14 @@ export class TimesheetComponent implements OnInit {
       this.taskData = this.fb.group({
         //create a itemrows control in formgroup
         date: ['00-00-0000'],
-        empId: ['120941'],
+        empId: [this.userProfile?.id],
         empName: [this.userProfile?.givenName],
   
         itemRows: this.fb.array([this.initItemRow()]),
       });
+      this.getDate();
     })
+    
     
     
   }
@@ -64,7 +66,7 @@ export class TimesheetComponent implements OnInit {
     //   itemRows: this.fb.array([this.initItemRow()]),
     // });
     // this.getTasts();
-    this.getDate();
+    // this.getDate();
   }
   get itemRows() {
     return this.taskData.get('itemRows') as FormArray;
@@ -142,7 +144,7 @@ export class TimesheetComponent implements OnInit {
       this.taskData = this.fb.group({
         //create a itemrows control in formgroup
         date: ['00-00-0000'],
-        empId: ['120941'],
+        empId: [this.userProfile?.id],
         empName: [this.userProfile?.givenName],
   
         itemRows: this.fb.array([this.initItemRow()]),
